@@ -20,7 +20,7 @@ const middlewares = [ReduxThunk];
 
 export default () => (
   <Provider store={createStore(reducers, {}, applyMiddleware(...middlewares))}>    
-    <View style={{ marginTop: statusHeight, marginBottom: statusHeight/2, flex: 1 }}>
+    <View style={{ marginTop: statusHeight, flex: 1 }}>
       <AppRouter/>
     </View>
   </Provider>
