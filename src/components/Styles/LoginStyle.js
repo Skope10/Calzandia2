@@ -10,12 +10,13 @@ const loginStyle = StyleSheet.create({
 
   buttonSocioNumber: {
     alignItems: 'flex-end',
-    backgroundColor: '#27C4F7',
-    borderColor: '#27C4F7',
+    backgroundColor: '#52D1DC',
+    borderColor: '#52D1DC',
     borderRadius: 32,
     borderWidth: 2,
     justifyContent: 'center',
     flexDirection: 'row',
+    marginTop: vh / 8,
     padding: 20,
     width: vw / 1.2,
   },
@@ -37,7 +38,7 @@ const loginStyle = StyleSheet.create({
   },
 
   container: {
-    backgroundColor: '#198C94',
+    backgroundColor: '#FFFBFA',
     flex: 1,
   },
 
@@ -104,7 +105,7 @@ const loginStyle = StyleSheet.create({
   },
 
   text: {
-    color: 'white',
+    color: '#000',
     fontSize: 16,
     fontWeight: '100',
     textDecorationLine: 'underline',
@@ -116,7 +117,7 @@ const loginStyle = StyleSheet.create({
   },
 
   textBold: {
-    color: 'white',
+    color: '#000',
     fontSize: 16,
     fontWeight: '500',
     textDecorationLine: 'underline',

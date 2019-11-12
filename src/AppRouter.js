@@ -1,10 +1,11 @@
 import React from 'react';
 import { Image, Platform, StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
-import {
-  loadLocale,
-} from './actions';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
+import { loadLocale } from './actions';
 import LoginPage from './components/Login/LoginPage';
+
+const statusHeight = getStatusBarHeight();
 
 const styles = StyleSheet.create({
 	container: {
@@ -27,7 +28,7 @@ class AppRouter extends React.Component {
 		//}
 
 		return (
-			<View style={styles.container}>
+			<View style={{ marginTop: statusHeight, flex: 1,}}>
 				<LoginPage/>
 			</View>
 		);
