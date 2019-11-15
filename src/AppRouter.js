@@ -4,14 +4,15 @@ import { connect } from 'react-redux';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 import { loadLocale } from './actions';
 import LoginPage from './components/Login/LoginPage';
+import HomePage from './components/Home/HomePage';
 
 const statusHeight = getStatusBarHeight();
 
 const styles = StyleSheet.create({
-	container: {
-		backgroundColor: '#fff',
-		flex: 1,
-	},
+  container: {
+    backgroundColor: '#fff',
+    flex: 1,
+  },
 
 });
 
@@ -20,21 +21,35 @@ class AppRouter extends React.Component {
     super(props);
 
     this.props.loadLocale();
+    this.state = { isLoggedIn: false };
   }
-	render() {
 
-		//if (!accessToken) {
-		//return ( <LoginForm />) ;
-		//}
+  choosePage = () => {
+    if (this.state.loggedInStatus) {
+      return (
+        <HomePage/>
+      )
+    } else {
+      return (
+        <LoginPage screenProps={{ isLoggedIn: () => this.setState({ loggedInStatus: true }) }} />
+      )
+    }
+  }
 
-		return (
-			<View style={{ marginTop: statusHeight, flex: 1,}}>
-				<LoginPage/>
-			</View>
-		);
-	}
+  render() {
+
+    //if (!accessToken) {
+    //return ( <LoginForm />) ;
+    //}
+
+    return (
+      <View style={{ marginTop: statusHeight, flex: 1, }}>
+        {this.choosePage()}
+      </View>
+    )
+  }
 }
 
 export default connect(null, {
-	loadLocale,
+  loadLocale,
 })(AppRouter);

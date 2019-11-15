@@ -1,14 +1,8 @@
 import React from 'react';
 import {
-  Animated,
-  BackHandler,
   Image,
-  Keyboard,
-  Linking,
-  ScrollView,
   Text,
-  TextInput,
-  TouchableWithoutFeedback,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import { connect } from 'react-redux';
@@ -23,36 +17,36 @@ class LoginPage extends React.PureComponent {
   }
 
   componentDidMount() {
-    this.backButtonListener = BackHandler.addEventListener(
-      'hardwareBackPress',
-      this.handleBackPress,
-    );
   }
 
   componentDidUpdate() {
-
   }
 
   componentWillUnmount() {
-    this.backButtonListener.remove();
   }
+
+  goHome = () => {
+    this.props.screenProps.isLoggedIn();
+  };
 
   render() {
     return (
       <View style={LoginStyle.flex}>
         <View style={LoginStyle.container}>
-          <View style={{ flex: 1,alignItems: 'center', justifyContent: 'center', }}>
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', }}>
+            <Image
+              style={{ width: 200, height: 85, marginBottom: 5 }}
+              source={require('../../../assets/Table_logo.png')}
+            />
             <Image
               style={{ width: 350, height: 350 }}
-              source={ require('../../../assets/logoApp1.png') }
+              source={require('../../../assets/logoApp1.png')}
             />
-            <View style={LoginStyle.buttonSocioNumber}>
-              <TouchableWithoutFeedback >
-                <Text style={LoginStyle.textButton}>
-                  Número de Socio
+            <TouchableOpacity style={LoginStyle.buttonSocioNumber} onPress={this.goHome}>
+              <Text style={LoginStyle.textButton}>
+                Número de Socio
                 </Text>
-              </TouchableWithoutFeedback>
-            </View>
+            </TouchableOpacity>
           </View>
 
           <View style={LoginStyle.form}>

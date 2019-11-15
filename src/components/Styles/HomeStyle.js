@@ -4,7 +4,7 @@ const vh = Dimensions.get('window').height;
 const vw = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('screen').height;
 
-const LoginStyle = StyleSheet.create({
+const HomeStyle = StyleSheet.create({
   background: {
     ...StyleSheet.absoluteFillObject,
   },
@@ -39,7 +39,7 @@ const LoginStyle = StyleSheet.create({
   },
 
   container: {
-    backgroundColor: '#FFFBFA',
+    backgroundColor: '#52D1DC',
     flex: 1,
   },
 
@@ -143,4 +143,4 @@ const LoginStyle = StyleSheet.create({
   },
 });
 
-export default LoginStyle;
+export default HomeStyle;
